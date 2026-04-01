@@ -95,7 +95,8 @@ function dD(d){if(!d)return"";var x=new Date(d);return x.getDate()+"-"+(x.getMon
 function go(){
 var btn=document.getElementById(“gB”);btn.disabled=true;
 document.getElementById(“ov”).classList.add(“sh”);
-setTimeout(function(){try{buildPDF()}catch(e){alert(“Error: “+e.message);console.error(e)}finally{document.getElementById(“ov”).classList.remove(“sh”);btn.disabled=false}},200);
+try{buildPDF()}catch(e){alert(“Error: “+e.message);console.error(e)}
+document.getElementById(“ov”).classList.remove(“sh”);btn.disabled=false;
 }
 
 function buildPDF(){
@@ -209,7 +210,13 @@ doc.autoTable({startY:y,margin:{left:M,right:M},body:[
 doc.setFontSize(7);doc.setTextColor(120);
 doc.text(“Date: “+dD(V(“dC”))+” | “+hosp+” | Aseer Health Cluster | Medication Safety | Confidential”,W/2,y,{align:“center”});
 
-doc.save(“RCA_”+mrn+”*”+fD(V(“iD”)).replace(/[, ]+/g,”*”)+”.pdf”);
+var fn=“RCA_”+mrn+”*”+fD(V(“iD”)).replace(/[, ]+/g,”*”)+”.pdf”;
+if(/iPad|iPhone|iPod/.test(navigator.userAgent)){
+var blobUrl=doc.output(“bloburl”);
+window.open(blobUrl,”_blank”);
+}else{
+doc.save(fn);
+}
 }
 </script>
 
