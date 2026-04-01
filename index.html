@@ -38,33 +38,7 @@ textarea{min-height:50px;resize:vertical}
 <header><h1>RCA Report Generator</h1><p>SPSC + MOH Policies - Aseer Health Cluster</p></header>
 <div class="w">
 <div class="n"><b>36 error types</b> (24 SPSC official + 12 MOH policy types) across 6 stages. NCC MERP A-I classification.</div>
-<div style="background:#fee;border:2px solid #c00;border-radius:8px;padding:10px;margin-bottom:12px">
-<b style="color:#c00">DEBUG: Test PDF Engine</b><br>
-<button onclick="testPDF()" style="margin-top:8px;padding:10px 20px;background:#c00;color:#fff;border:none;border-radius:6px;font-size:14px;font-weight:700">Click Here to Test PDF</button>
-<div id="dbg" style="margin-top:8px;font-size:11px;background:#fff;padding:8px;border-radius:4px;white-space:pre-wrap">Waiting for test...</div>
-</div>
-<script>
-function testPDF(){
-var d=document.getElementById("dbg");
-d.textContent="Testing...\n";
-try{
-d.textContent+="1. jspdf exists: "+(typeof window.jspdf)+"\n";
-d.textContent+="2. jsPDF class: "+(typeof window.jspdf.jsPDF)+"\n";
-var doc=new window.jspdf.jsPDF();
-d.textContent+="3. Doc created OK\n";
-doc.text("RCA Test PDF - It Works!",20,20);
-d.textContent+="4. Text added OK\n";
-doc.save("rca_test.pdf");
-d.textContent+="5. Save called OK\n";
-d.textContent+="\nSUCCESS! If no PDF downloaded, try this:\n";
-var url=doc.output("bloburl");
-d.innerHTML+='<br><a href="'+url+'" target="_blank" style="color:blue;font-size:16px;font-weight:bold">>>> TAP HERE TO OPEN PDF <<<</a>';
-}catch(e){
-d.textContent+="ERROR: "+e.message+"\n";
-d.textContent+="Stack: "+e.stack;
-}
-}
-</script>
+
 <div class="c"><div class="ct">Hospital &amp; Report</div>
 <div class="r rf"><div><label>Hospital Name</label><select id="hosp"><option value="Tubala General Hospital">Tubala General Hospital</option><option value="Aseer Central Hospital">Aseer Central Hospital</option><option value="Abha Maternity Hospital">Abha Maternity Hospital</option><option value="Khamis Mushait General Hospital">Khamis Mushait General Hospital</option><option value="Muhayil General Hospital">Muhayil General Hospital</option><option value="Sarat Abidah General Hospital">Sarat Abidah General Hospital</option><option value="Tanomah General Hospital">Tanomah General Hospital</option><option value="Rijal Almaa General Hospital">Rijal Almaa General Hospital</option><option value="Balqarn General Hospital">Balqarn General Hospital</option><option value="Bisha General Hospital">Bisha General Hospital</option><option value="Tathlith General Hospital">Tathlith General Hospital</option><option value="Al Namas General Hospital">Al Namas General Hospital</option><option value="Ahad Rafidah General Hospital">Ahad Rafidah General Hospital</option><option value="Al Majardah General Hospital">Al Majardah General Hospital</option><option value="Dhahran Al Janoub General Hospital">Dhahran Al Janoub General Hospital</option><option value="other">Other (type below)</option></select></div></div>
 <div class="r rf" id="hospOR" style="display:none"><div><label>Other Hospital</label><input id="hospO"></div></div>
@@ -123,18 +97,19 @@ var btn=document.getElementById(“gB”);
 btn.disabled=true;
 btn.textContent=“Generating…”;
 try{
-buildPDF();
-btn.textContent=“Done! Check new tab”;
+var doc=buildPDF();
+var url=doc.output(“bloburl”);
+window.location.href=url;
+btn.textContent=“PDF Ready!”;
 }catch(e){
-btn.textContent=“ERROR - Try Again”;
-alert(“PDF Error: “+e.message+”\n\nLine: “+(e.lineNumber||“unknown”));
-console.error(e);
+alert(“Error: “+e.message);
+btn.textContent=“Error - Retry”;
 }
 setTimeout(function(){btn.textContent=“Generate RCA Report (PDF)”;btn.disabled=false;},3000);
 }
 
 function buildPDF(){
-if(!window.jspdf || !window.jspdf.jsPDF){alert(“PDF library not loaded. Please refresh the page and try again.”);return;}
+if(!window.jspdf || !window.jspdf.jsPDF){throw new Error(“PDF library not loaded. Refresh page.”);}
 
 var t=D.e[parseInt(V(“eT”))],sv=D.sev[parseInt(V(“sev”))];
 var pn=V(“pN”),mrn=V(“mrn”),age=V(“age”),gen=V(“gen”),ward=V(“ward”),cc=V(“cc”);
@@ -246,17 +221,7 @@ doc.autoTable({startY:y,margin:{left:M,right:M},body:[
 doc.setFontSize(7);doc.setTextColor(120);
 doc.text(“Date: “+dD(V(“dC”))+” | “+hosp+” | Aseer Health Cluster | Medication Safety | Confidential”,W/2,y,{align:“center”});
 
-var fn=“RCA_”+mrn+”*”+fD(V(“iD”)).replace(/[, ]+/g,”*”)+”.pdf”;
-try{
-var dataUri=doc.output(“dataurlnewwindow”);
-}catch(e1){
-try{
-var blobUrl=doc.output(“bloburl”);
-window.location.href=blobUrl;
-}catch(e2){
-doc.save(fn);
-}
-}
+return doc;
 }
 </script>
 
