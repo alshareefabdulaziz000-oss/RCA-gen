@@ -93,13 +93,23 @@ function fD(d){if(!d)return"";var x=new Date(d),m=["Jan","Feb","Mar","Apr","May"
 function dD(d){if(!d)return"";var x=new Date(d);return x.getDate()+"-"+(x.getMonth()+1)+"-"+x.getFullYear()}
 
 function go(){
-var btn=document.getElementById(“gB”);btn.disabled=true;
-document.getElementById(“ov”).classList.add(“sh”);
-try{buildPDF()}catch(e){alert(“Error: “+e.message);console.error(e)}
-document.getElementById(“ov”).classList.remove(“sh”);btn.disabled=false;
+var btn=document.getElementById(“gB”);
+btn.disabled=true;
+btn.textContent=“Generating…”;
+try{
+buildPDF();
+btn.textContent=“Done! Check new tab”;
+}catch(e){
+btn.textContent=“ERROR - Try Again”;
+alert(“PDF Error: “+e.message+”\n\nLine: “+(e.lineNumber||“unknown”));
+console.error(e);
+}
+setTimeout(function(){btn.textContent=“Generate RCA Report (PDF)”;btn.disabled=false;},3000);
 }
 
 function buildPDF(){
+if(!window.jspdf || !window.jspdf.jsPDF){alert(“PDF library not loaded. Please refresh the page and try again.”);return;}
+
 var t=D.e[parseInt(V(“eT”))],sv=D.sev[parseInt(V(“sev”))];
 var pn=V(“pN”),mrn=V(“mrn”),age=V(“age”),gen=V(“gen”),ward=V(“ward”),cc=V(“cc”);
 var meds=V(“meds”),notes=V(“notes”),resp=V(“resp”)||“Medical Director”;
@@ -211,11 +221,15 @@ doc.setFontSize(7);doc.setTextColor(120);
 doc.text(“Date: “+dD(V(“dC”))+” | “+hosp+” | Aseer Health Cluster | Medication Safety | Confidential”,W/2,y,{align:“center”});
 
 var fn=“RCA_”+mrn+”*”+fD(V(“iD”)).replace(/[, ]+/g,”*”)+”.pdf”;
-if(/iPad|iPhone|iPod/.test(navigator.userAgent)){
+try{
+var dataUri=doc.output(“dataurlnewwindow”);
+}catch(e1){
+try{
 var blobUrl=doc.output(“bloburl”);
-window.open(blobUrl,”_blank”);
-}else{
+window.location.href=blobUrl;
+}catch(e2){
 doc.save(fn);
+}
 }
 }
 </script>
