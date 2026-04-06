@@ -18,9 +18,9 @@ textarea{min-height:50px;resize:vertical}
 .btn:active{transform:scale(.98)}.btn:disabled{opacity:.5}
 .n{background:#eff6ff;border:1px solid #bfdbfe;border-radius:8px;padding:10px 12px;font-size:11px;color:#1e40af;margin-bottom:12px}
 </style></head><body>
-<header><h1>RCA Report Generator</h1><p>SPSC + MOH - Aseer Health Cluster</p></header>
+<header><h1>RCA Report Generator</h1><p>SPSC + MOH Policies - Aseer Health Cluster</p></header>
 <div class="w">
-<div class="n"><b>36 error types</b> | NCC MERP A-I</div>
+<div class="n"><b>36 error types</b> (24 SPSC + 12 MOH) | NCC MERP A-I | Professional PDF</div>
 <div class="c"><div class="ct">Hospital &amp; Report</div>
 <div class="r rf"><div><label>Hospital</label><select id="hosp"><option>Tubala General Hospital</option><option>Aseer Central Hospital</option><option>Abha Maternity Hospital</option><option>Khamis Mushait General Hospital</option><option>Muhayil General Hospital</option><option>Bisha General Hospital</option><option>Al Namas General Hospital</option><option>Ahad Rafidah General Hospital</option><option>Dhahran Al Janoub General Hospital</option><option value="other">Other</option></select></div></div>
 <div class="r rf" id="hospOR" style="display:none"><div><label>Other</label><input id="hospO"></div></div>
@@ -32,13 +32,13 @@ textarea{min-height:50px;resize:vertical}
 <div class="r r3"><div><label>Age</label><input type="number" id="age"></div><div><label>Gender</label><select id="gen"><option>Male</option><option>Female</option></select></div><div><label>Location</label><select id="ward"><option>ER Adult</option><option>ER Pediatric</option><option>Male Medical Ward</option><option>Female Medical Ward</option><option>ICU</option><option>NICU</option><option>Pediatric Ward</option><option>OBGYN Ward</option><option>Outpatient Pharmacy</option><option>Inpatient Pharmacy</option><option>Operation Unit</option><option>Internal Medicine Clinic</option><option>Family Clinic</option><option>Laboratory</option></select></div></div>
 <div class="r rf"><div><label>Diagnosis</label><input id="cc"></div></div></div>
 <div class="c"><div class="ct">Error Details</div>
-<div class="r"><div><label>Stage</label><select id="stg"><option>Prescribing</option><option>Transcribing</option><option>Dispensing</option><option>Preparation</option><option>Administration</option><option>Monitoring</option></select></div><div><label>Error Type</label><select id="eT"><optgroup label="Prescribing"><option value="0">Wrong/Missed Dose</option><option value="1">Wrong/Missed Frequency</option></optgroup><optgroup label="Dispensing"><option value="2">Wrong Strength</option></optgroup><optgroup label="Prescribing"><option value="3">Wrong Medication</option></optgroup><optgroup label="Dispensing"><option value="4">Wrong Dosage Form</option></optgroup><optgroup label="Preparation"><option value="5">Wrong Preparation</option></optgroup><optgroup label="Prescribing"><option value="6">Wrong Route</option></optgroup><optgroup label="Administration"><option value="7">Wrong Rate</option></optgroup><optgroup label="Prescribing"><option value="8">Wrong Duration</option></optgroup><optgroup label="Monitoring"><option value="9">Wrong/Missed TDM</option></optgroup><optgroup label="Administration"><option value="10">Wrong Time</option></optgroup><optgroup label="Prescribing"><option value="11">Wrong/Missed Indication</option><option value="12">Known Contraindication</option><option value="13">Drug-Drug Interaction</option><option value="14">Drug-Disease Interaction</option></optgroup><optgroup label="Monitoring"><option value="15">Drug-Food Interaction</option></optgroup><optgroup label="Dispensing"><option value="16">Wrong Storage</option></optgroup><optgroup label="Prescribing"><option value="17">Documented Allergy</option></optgroup><optgroup label="Dispensing"><option value="18">Expired Product</option></optgroup><optgroup label="Prescribing"><option value="19">Medication Duplication</option></optgroup><optgroup label="Dispensing"><option value="20">Delivery Delay</option></optgroup><optgroup label="Administration"><option value="21">Wrong Technique</option><option value="22">Wrong Patient</option><option value="23">Wrong Site</option></optgroup><optgroup label="Prescribing"><option value="24">Outside Privilege</option><option value="25">High-Alert Violation</option><option value="26">Verbal Order Violation</option><option value="27">CS Violation</option><option value="28">Non-Formulary</option><option value="29">Incomplete Rx</option><option value="30">Pediatric Dosing Error</option></optgroup><optgroup label="Transcribing"><option value="31">Transcription Error</option></optgroup><optgroup label="Monitoring"><option value="32">ADR Not Reported</option><option value="33">Documentation Failure</option></optgroup><optgroup label="Dispensing"><option value="34">Incorrect Labeling</option><option value="35">Recalled Med</option></optgroup></select></div></div>
+<div class="r"><div><label>Stage</label><select id="stg"><option>Prescribing</option><option>Transcribing</option><option>Dispensing</option><option>Preparation</option><option>Administration</option><option>Monitoring</option></select></div><div><label>Error Type</label><select id="eT"><optgroup label="Prescribing"><option value="0">Wrong/Missed Dose</option><option value="1">Wrong/Missed Frequency</option></optgroup><optgroup label="Dispensing"><option value="2">Wrong Strength</option></optgroup><optgroup label="Prescribing"><option value="3">Wrong Medication</option></optgroup><optgroup label="Dispensing"><option value="4">Wrong Dosage Form</option></optgroup><optgroup label="Preparation"><option value="5">Wrong Preparation</option></optgroup><optgroup label="Prescribing"><option value="6">Wrong Route</option></optgroup><optgroup label="Administration"><option value="7">Wrong Rate</option></optgroup><optgroup label="Prescribing"><option value="8">Wrong Duration</option></optgroup><optgroup label="Monitoring"><option value="9">Missed TDM</option></optgroup><optgroup label="Administration"><option value="10">Wrong Time</option></optgroup><optgroup label="Prescribing"><option value="11">Missed Indication</option><option value="12">Known Contraindication</option><option value="13">Drug-Drug Interaction</option><option value="14">Drug-Disease Interaction</option></optgroup><optgroup label="Monitoring"><option value="15">Drug-Food Interaction</option></optgroup><optgroup label="Dispensing"><option value="16">Wrong Storage</option></optgroup><optgroup label="Prescribing"><option value="17">Documented Allergy</option></optgroup><optgroup label="Dispensing"><option value="18">Expired Product</option></optgroup><optgroup label="Prescribing"><option value="19">Medication Duplication</option></optgroup><optgroup label="Dispensing"><option value="20">Delivery Delay</option></optgroup><optgroup label="Administration"><option value="21">Wrong Technique</option><option value="22">Wrong Patient</option><option value="23">Wrong Site</option></optgroup><optgroup label="Prescribing"><option value="24">Outside Privilege</option><option value="25">High-Alert Violation</option><option value="26">Verbal Order Violation</option><option value="27">CS Violation</option><option value="28">Non-Formulary</option><option value="29">Incomplete Rx</option><option value="30">Pediatric Dosing Error</option></optgroup><optgroup label="Transcribing"><option value="31">Transcription Error</option></optgroup><optgroup label="Monitoring"><option value="32">ADR Not Reported</option><option value="33">Documentation Failure</option></optgroup><optgroup label="Dispensing"><option value="34">Incorrect Labeling</option><option value="35">Recalled Med</option></optgroup></select></div></div>
 <div class="r rf"><div><label>Medication(s)</label><input id="meds"></div></div>
 <div class="r rf"><div><label>Description</label><textarea id="notes" rows="2"></textarea></div></div>
 <div class="r rf"><div><label>Action Taken</label><select id="act" multiple size="3"><option>Call physician</option><option>Policies changed</option><option>Staff awareness</option><option>Education provided</option><option>Root cause analysis</option><option>Report to supervisor</option><option>Environment modified</option></select></div></div>
 <div class="r r3"><div><label>Date</label><input type="date" id="iD"></div><div><label>Time</label><input type="time" id="iT"></div><div><label>Shift</label><select id="sh"><option>PM</option><option>AM</option><option>Night</option></select></div></div></div>
 <div class="c"><div class="ct">NCC MERP Severity</div>
-<div class="r rf"><div><label>Category</label><select id="sev"><option value="0">Category A - Capacity to cause error</option><option value="1">Category B - Error did not reach patient</option><option value="2">Category C - Reached patient, no harm</option><option value="3">Category D - Required monitoring</option><option value="4">Category E - Temporary harm, intervention needed</option><option value="5">Category F - Temporary harm, hospitalization</option><option value="6">Category G - Permanent harm</option><option value="7">Category H - Life-sustaining intervention</option><option value="8">Category I - Contributed to death</option></select></div></div>
+<div class="r rf"><div><label>Category</label><select id="sev"><option value="0">Category A - Capacity to cause error</option><option value="1">Category B - Error did not reach patient</option><option value="2">Category C - Reached patient, no harm</option><option value="3">Category D - Required monitoring</option><option value="4">Category E - Temporary harm, intervention</option><option value="5">Category F - Temporary harm, hospitalization</option><option value="6">Category G - Permanent harm</option><option value="7">Category H - Life-sustaining intervention</option><option value="8">Category I - Contributed to death</option></select></div></div>
 <div class="r rf"><div><label>Responsible</label><input id="resp" value="Medical Director"></div></div></div>
 <div class="c"><div class="ct">Signatures</div>
 <div class="sr"><span>Prepared by:</span><input id="s1"></div><div class="sr"><span>Title:</span><input id="s1r"></div>
@@ -48,12 +48,244 @@ textarea{min-height:50px;resize:vertical}
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
-<script src="data.js"></script>
-<script src="app.js"></script>
 <script>
-var now=new Date(),iso=now.toISOString().split("T")[0];
-document.getElementById("dI").value=iso;document.getElementById("iD").value=iso;
-var c2=new Date(now);c2.setDate(c2.getDate()+4);document.getElementById("dC").value=c2.toISOString().split("T")[0];
-document.getElementById("hosp").onchange=function(){document.getElementById("hospOR").style.display=this.value==="other"?"block":"none"};
+var D={"e": [{"l": "Wrong/Missed Dose", "s": "Prescribing", "p": "Wrong/missed dose", "c": "MM.3", "d": "prescribed XMEDX at incorrect dose", "r": "Absence of dose-range checking", "fm": ["No dose-range verification", "Incorrect calculation"], "ft": ["No CPOE alerts"], "fe": ["Overcrowding"], "fh": ["Insufficient knowledge", "Fatigue"]}, {"l": "Wrong/Missed Frequency", "s": "Prescribing", "p": "Wrong/missed Frequency", "c": "MM.3", "d": "prescribed XMEDX with incorrect frequency", "r": "Failure to verify dosing interval", "fm": ["Wrong interval"], "ft": ["No alerts"], "fe": ["High volume"], "fh": ["Memory-based prescribing"]}, {"l": "Wrong Strength", "s": "Dispensing", "p": "Wrong Strength/Concentration", "c": "MM.11", "d": "dispensed XMEDX at incorrect strength", "r": "Inadequate strength verification", "fm": ["Wrong strength selected"], "ft": ["Similar packaging"], "fe": ["Interruptions"], "fh": ["Confirmation bias"]}, {"l": "Wrong Medication", "s": "Prescribing", "p": "Wrong medication", "c": "MM.5", "d": "prescribed XMEDX incorrectly (LASA confusion)", "r": "LASA confusion", "fm": ["LASA confusion", "Wrong drug"], "ft": ["LASA drugs adjacent"], "fe": ["Overcrowding"], "fh": ["Formulary unfamiliarity"]}, {"l": "Wrong Dosage Form", "s": "Dispensing", "p": "Wrong/missed dosage form", "c": "MM.11", "d": "dispensed incorrect dosage form of XMEDX", "r": "Failure to verify dosage form", "fm": ["IR/SR confusion"], "ft": ["Similar names"], "fe": ["High workload"], "fh": ["Insufficient attention"]}, {"l": "Wrong Preparation", "s": "Preparation", "p": "Wrong/missed Method of Preparation", "c": "MM.15", "d": "incorrectly prepared XMEDX", "r": "Insufficient preparation protocols", "fm": ["Wrong diluent"], "ft": ["No guides"], "fe": ["Interruptions"], "fh": ["Insufficient training"]}, {"l": "Wrong Route", "s": "Prescribing", "p": "Wrong/missed Route", "c": "MM.3", "d": "prescribed XMEDX via incorrect route", "r": "Absence of route verification", "fm": ["Route omitted"], "ft": ["No validation"], "fe": ["Emergency pressure"], "fh": ["Insufficient knowledge"]}, {"l": "Wrong Rate", "s": "Administration", "p": "Wrong/missed Rate", "c": "MM.15", "d": "administered XMEDX at incorrect IV rate", "r": "Failure to verify infusion rate", "fm": ["Calculation error"], "ft": ["No smart pump"], "fe": ["Multiple IVs"], "fh": ["Insufficient competency"]}, {"l": "Wrong Duration", "s": "Prescribing", "p": "wrong/missed duration", "c": "MM.3", "d": "prescribed XMEDX for incorrect duration", "r": "Failure to specify duration", "fm": ["Duration not specified"], "ft": ["No alerts"], "fe": ["High volume"], "fh": ["Insufficient knowledge"]}, {"l": "Missed TDM", "s": "Monitoring", "p": "wrong/missed TDM", "c": "MM.16", "d": "failed to initiate TDM for XMEDX", "r": "Absence of TDM prompts", "fm": ["TDM not ordered"], "ft": ["No prompts"], "fe": ["High volume"], "fh": ["Insufficient knowledge"]}, {"l": "Wrong Time", "s": "Administration", "p": "Wrong/missed Time", "c": "MM.15", "d": "administered XMEDX outside timing window", "r": "Absence of timing alerts", "fm": ["Dose omitted"], "ft": ["Paper MAR"], "fe": ["High ratio"], "fh": ["Workload overload"]}, {"l": "Missed Indication", "s": "Prescribing", "p": "Wrong/missed indication", "c": "MM.5.3.3", "d": "prescribed XMEDX without documented indication", "r": "Failure to document indication", "fm": ["No indication on Rx"], "ft": ["No field"], "fe": ["High volume"], "fh": ["Policy deficit"]}, {"l": "Known Contraindication", "s": "Prescribing", "p": "Known Contraindication", "c": "MM.3, MM.4", "d": "prescribed XMEDX despite contraindication", "r": "Failure to screen contraindications", "fm": ["Screening not done"], "ft": ["No alerts"], "fe": ["Emergency"], "fh": ["Insufficient knowledge"]}, {"l": "Drug-Drug Interaction", "s": "Prescribing", "p": "Drug-Drug interaction", "c": "MM.3, MM.4", "d": "prescribed XMEDX without detecting DDI", "r": "Inadequate reconciliation", "fm": ["Not assessed"], "ft": ["No database"], "fe": ["Multiple prescribers"], "fh": ["Insufficient knowledge"]}, {"l": "Drug-Disease Interaction", "s": "Prescribing", "p": "Drug-disease Interaction", "c": "MM.3", "d": "prescribed XMEDX ignoring drug-disease interaction", "r": "Failure to assess compatibility", "fm": ["Not assessed"], "ft": ["No alerts"], "fe": ["Incomplete history"], "fh": ["Insufficient knowledge"]}, {"l": "Drug-Food Interaction", "s": "Monitoring", "p": "Drug-food Interaction", "c": "MM.16", "d": "failed to counsel on drug-food interaction for XMEDX", "r": "Insufficient counseling", "fm": ["No counseling"], "ft": ["No references"], "fe": ["Language barriers"], "fh": ["Knowledge gap"]}, {"l": "Wrong Storage", "s": "Dispensing", "p": "Wrong Storage", "c": "MM.13", "d": "stored XMEDX under incorrect conditions", "r": "Inadequate monitoring", "fm": ["Conditions wrong"], "ft": ["Monitor failure"], "fe": ["Infrastructure"], "fh": ["Insufficient training"]}, {"l": "Documented Allergy", "s": "Prescribing", "p": "Documented Allergy", "c": "MM.3, MM.4", "d": "prescribed XMEDX despite documented allergy", "r": "Failure to verify allergy", "fm": ["Allergy not verified"], "ft": ["No allergy system"], "fe": ["Emergency"], "fh": ["Communication barrier"]}, {"l": "Expired Product", "s": "Dispensing", "p": "Expired/damaged product", "c": "MM.13", "d": "dispensed expired XMEDX", "r": "Inadequate expiry monitoring", "fm": ["FEFO not applied"], "ft": ["No tracking"], "fe": ["High volume"], "fh": ["Insufficient training"]}, {"l": "Medication Duplication", "s": "Prescribing", "p": "Medication duplication", "c": "MM.3", "d": "prescribed XMEDX causing duplication", "r": "Inadequate reconciliation", "fm": ["Not identified"], "ft": ["No alerts"], "fe": ["Multiple prescribers"], "fh": ["Incomplete review"]}, {"l": "Delivery Delay", "s": "Dispensing", "p": "Medication Delivery Delay", "c": "MM.11", "d": "delayed dispensing of XMEDX", "r": "Inefficient workflow", "fm": ["Delivery delayed"], "ft": ["No tracking"], "fe": ["Peak hours"], "fh": ["Insufficient staffing"]}, {"l": "Wrong Technique", "s": "Administration", "p": "wrong administration technique", "c": "MM.15", "d": "used incorrect technique for XMEDX", "r": "Insufficient training", "fm": ["Incorrect technique"], "ft": ["No guides"], "fe": ["Time pressure"], "fh": ["Insufficient training"]}, {"l": "Wrong Patient", "s": "Administration", "p": "wrong patient", "c": "IPSG.1", "d": "administered XMEDX to wrong patient", "r": "Failure in two-ID verification", "fm": ["ID not done"], "ft": ["No BCMA"], "fe": ["Proximity"], "fh": ["Non-compliance"]}, {"l": "Wrong Site", "s": "Administration", "p": "wrong site", "c": "IPSG.1", "d": "administered XMEDX at wrong site", "r": "Failure to verify site", "fm": ["Site not verified"], "ft": ["No checklist"], "fe": ["Rushed"], "fh": ["Assumption-based"]}, {"l": "Outside Privilege", "s": "Prescribing", "p": "MOH Privileging Policy", "c": "GLD.7", "d": "prescribed XMEDX outside scope per GLD.7", "r": "Unrecognized privilege limits", "fm": ["Outside scope"], "ft": ["No verification"], "fe": ["After-hours"], "fh": ["Unaware"]}, {"l": "High-Alert Violation", "s": "Prescribing", "p": "MOH High-Alert Policy", "c": "MM.4", "d": "prescribed XMEDX without high-alert protocols", "r": "Protocol not activated", "fm": ["Protocol not followed"], "ft": ["No safeguards"], "fe": ["Time pressure"], "fh": ["Unaware"]}, {"l": "Verbal Order Violation", "s": "Prescribing", "p": "MOH Verbal Order Policy", "c": "MM.8", "d": "verbal order for XMEDX without read-back", "r": "Non-compliance with protocols", "fm": ["No read-back"], "ft": ["No form"], "fe": ["Emergency"], "fh": ["Unfamiliarity"]}, {"l": "CS Violation", "s": "Prescribing", "p": "SFDA/Raqeeb Policy", "c": "MM.9", "d": "prescribed XMEDX without SFDA/Raqeeb compliance", "r": "CS regulation non-compliance", "fm": ["Raqeeb incomplete"], "ft": ["Forms unavailable"], "fe": ["After-hours"], "fh": ["Unfamiliarity"]}, {"l": "Non-Formulary", "s": "Prescribing", "p": "MOH Formulary Policy", "c": "MM.6", "d": "prescribed XMEDX without PT and C approval", "r": "Bypass of approval process", "fm": ["Approval bypassed"], "ft": ["Inaccessible"], "fe": ["Urgent need"], "fh": ["Unfamiliarity"]}, {"l": "Incomplete Rx", "s": "Prescribing", "p": "MOH Rx Standards", "c": "MM.7", "d": "Rx for XMEDX missing mandatory elements", "r": "Failure to complete elements", "fm": ["Incomplete Rx"], "ft": ["No mandatory fields"], "fe": ["High volume"], "fh": ["Insufficient knowledge"]}, {"l": "Pediatric Dosing Error", "s": "Prescribing", "p": "Pediatric Safety", "c": "MM.3, MM.4", "d": "prescribed XMEDX without wt-based calculation", "r": "No weight-based calculation", "fm": ["No wt-based calc"], "ft": ["No calculator"], "fe": ["Mixed dept"], "fh": ["Insufficient training"]}, {"l": "Transcription Error", "s": "Transcribing", "p": "Transcription Policy", "c": "MM.3", "d": "transcription error for XMEDX", "r": "Manual transcription without verification", "fm": ["Transcription error"], "ft": ["No CPOE"], "fe": ["Interruptions"], "fh": ["Insufficient training"]}, {"l": "ADR Not Reported", "s": "Monitoring", "p": "SFDA Pharmacovigilance", "c": "MM.16, MM.17", "d": "failed to report ADR for XMEDX", "r": "Insufficient ADR awareness", "fm": ["ADR not recognized"], "ft": ["Reporting inaccessible"], "fe": ["High workload"], "fh": ["Insufficient PV training"]}, {"l": "Documentation Failure", "s": "Monitoring", "p": "Documentation Policy", "c": "MM.15", "d": "incomplete documentation for XMEDX", "r": "Inadequate documentation practices", "fm": ["Incomplete MAR"], "ft": ["Paper-based"], "fe": ["High workload"], "fh": ["Insufficient training"]}, {"l": "Incorrect Labeling", "s": "Dispensing", "p": "Labeling Policy", "c": "MM.12", "d": "incorrect labeling of XMEDX", "r": "Failure to apply labeling", "fm": ["Incomplete label"], "ft": ["System limitations"], "fe": ["High volume"], "fh": ["Dispensing haste"]}, {"l": "Recalled Med", "s": "Dispensing", "p": "MOH Recall Policy", "c": "MM.30", "d": "recalled XMEDX not removed", "r": "Failure to remove recalled products", "fm": ["Recall not actioned"], "ft": ["Notification gaps"], "fe": ["Decentralized storage"], "fh": ["Process not understood"]}], "sev": [{"l": "Category A", "d": "Capacity to cause error", "j": "NCC MERP A. Preventive action required."}, {"l": "Category B", "d": "Error did not reach patient", "j": "NCC MERP B. SPSC reporting required."}, {"l": "Category C", "d": "Reached patient, no harm", "j": "NCC MERP C. RCA and CAPA required."}, {"l": "Category D", "d": "Required monitoring", "j": "NCC MERP D. Formal RCA required."}, {"l": "Category E", "d": "Temporary harm, intervention", "j": "NCC MERP E. Comprehensive RCA mandated."}, {"l": "Category F", "d": "Temporary harm, hospitalization", "j": "NCC MERP F. Sentinel event. SPSC 24hr."}, {"l": "Category G", "d": "Permanent harm", "j": "NCC MERP G. Immediate MOH/SPSC reporting."}, {"l": "Category H", "d": "Life-sustaining intervention", "j": "NCC MERP H. Immediate regulatory reporting."}, {"l": "Category I", "d": "Contributed to death", "j": "NCC MERP I. MOH, SPSC, SFDA reporting."}]};
 </script>
+<script>
+function V(i){return document.getElementById(i).value.trim()}
+function gH(){var v=V("hosp");return v==="other"?V("hospO"):v}
+function gA(){var s=document.getElementById("act"),r=[];for(var i=0;i<s.options.length;i++){if(s.options[i].selected)r.push(s.options[i].value)}return r}
+function fD(d){if(!d)return"";var x=new Date(d);var m=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];return m[x.getMonth()]+" "+x.getDate()+", "+x.getFullYear()}
+
+function go(){
+var btn=document.getElementById(“gB”);
+btn.disabled=true;
+btn.textContent=“Working…”;
+try{
+var doc=buildPDF();
+doc.save(“RCA_”+V(“mrn”)+”.pdf”);
+btn.textContent=“Done!”;
+}catch(e){
+alert(“PDF Error: “+e.message);
+btn.textContent=“Error - Try Again”;
+}
+setTimeout(function(){btn.textContent=“Generate RCA Report (PDF)”;btn.disabled=false},3000);
+}
+
+function buildPDF(){
+var t=D.e[parseInt(V(“eT”))];
+var sv=D.sev[parseInt(V(“sev”))];
+var pn=V(“pN”),mrn=V(“mrn”),age=V(“age”),gen=V(“gen”);
+var ward=V(“ward”),cc=V(“cc”),meds=V(“meds”),notes=V(“notes”);
+var resp=V(“resp”)||“Medical Director”;
+var stage=V(“stg”),hosp=gH(),acts=gA();
+var desc=t.d.replace(/XMEDX/g,meds);
+var ev=“A “+age+”-year-old “+gen.toLowerCase()+” patient (MRN: “+mrn+”) presented to “+ward+” with “+cc+”. During “+stage.toLowerCase()+”, “+desc+”. Reported via OVR and SPSC.”+(notes?” “+notes:””);
+
+var jsPDF=window.jspdf.jsPDF;
+var doc=new jsPDF({unit:“mm”,format:“a4”});
+var W=210,M=14,CW=W-2*M,y=M;
+var bl=[3,105,161],dk=[12,74,110],gr=[26,122,58];
+
+try{doc.addImage(“data:image/jpeg;base64,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”,“JPEG”,W-M-42,y-2,42,19)}catch(x){}
+doc.setFontSize(9);doc.setTextColor(40);doc.setFont(“helvetica”,“bold”);
+if(hosp){doc.text(hosp,M,y+8)}
+y=y+22;
+doc.setDrawColor(bl[0],bl[1],bl[2]);doc.setLineWidth(1);doc.line(M,y,W-M,y);
+y=y+3;
+doc.setFontSize(14);doc.setTextColor(bl[0],bl[1],bl[2]);
+doc.text(“Root Cause Analysis Report”,W/2,y+5,{align:“center”});
+doc.setFontSize(7);doc.setTextColor(80);doc.setFont(“helvetica”,“normal”);
+doc.text(“Medication Safety | SPSC + MOH | Aseer Health Cluster”,W/2,y+9,{align:“center”});
+y=y+13;
+doc.setFontSize(6);doc.setTextColor(130);
+doc.text(“RCA-”+mrn+”-”+(new Date()).getFullYear()+” | CBAHI: “+t.c+” | “+t.p,W-M,y+1,{align:“right”});
+y=y+5;
+
+function sH(ti){
+if(y>255){doc.addPage();y=M}
+doc.setFillColor(bl[0],bl[1],bl[2]);doc.rect(M,y,CW,6,“F”);
+doc.setFontSize(9);doc.setTextColor(255);doc.setFont(“helvetica”,“bold”);
+doc.text(ti,W/2,y+4.2,{align:“center”});y=y+8;doc.setTextColor(0);
+}
+function aR(la,va){
+if(y>265){doc.addPage();y=M}
+doc.setFontSize(7.5);doc.setFont(“helvetica”,“bold”);doc.setTextColor(20);
+var ll=doc.splitTextToSize(la,44);doc.text(ll,M+2,y+3.5);
+doc.setFont(“helvetica”,“normal”);doc.setTextColor(40);
+var vl=doc.splitTextToSize(va,CW-49);doc.text(vl,M+50,y+3.5);
+var rh=Math.max(ll.length,vl.length)*3.2+2.5;
+doc.setDrawColor(200);doc.setLineWidth(0.15);doc.line(M,y+rh,W-M,y+rh);
+y=y+rh+0.5;
+}
+function aT(ti){
+if(y>258){doc.addPage();y=M}
+doc.setFontSize(10);doc.setTextColor(bl[0],bl[1],bl[2]);doc.setFont(“helvetica”,“bold”);
+doc.text(ti,M,y+3);
+doc.setDrawColor(bl[0],bl[1],bl[2]);doc.setLineWidth(0.5);
+doc.line(M,y+4.5,W-M,y+4.5);y=y+7;
+}
+
+doc.autoTable({startY:y,margin:{left:M,right:M},
+head:[[V(“rcaT”)+” RCA”,fD(V(“dI”))+” to “+fD(V(“dC”)),stage]],
+body:[
+[“Patient: “+pn+” (”+age+“y, “+gen+”)”,“MRN: “+mrn,ward],
+[“Reached: “+V(“erR”),“Type: “+t.p,sv.l],
+[“Rx: “+V(“rxT”),V(“own”),cc]
+],
+styles:{fontSize:7,cellPadding:2,font:“helvetica”},
+headStyles:{fillColor:bl,textColor:255,fontStyle:“bold”},
+theme:“grid”
+});
+y=doc.lastAutoTable.finalY+3;
+
+sH(“SECTION 1: EVENT DESCRIPTION”);
+aR(“Event”,ev);
+aR(“Date / Time”,fD(V(“iD”))+”, “+(V(“iT”)||“N/A”)+“H, “+V(“sh”));
+aR(“Location”,ward);
+aR(“Reporting”,“OVR + SPSC portal per MOH/MSPP/0007/01”);
+
+sH(“SECTION 2: CAUSAL FACTORS”);
+aR(“Contributing Factors”,“1. Knowledge deficit re: “+t.l+” and CBAHI “+t.c+” | 2. Cognitive overload | 3. Communication barriers | 4. Behavioral normalization | 5. System pressure”);
+aR(“Training”,t.l+” prevention not embedded in CME framework”);
+aR(“Competence”,“Gap identified in “+t.l.toLowerCase()+” prevention”);
+aR(“Communication”,“SBAR not consistently used between disciplines”);
+
+sH(“SECTION 3: PROCESS AND SYSTEMS”);
+aR(“Process Failure”,“Failure at “+stage.toLowerCase()+” step. Swiss Cheese Model defense-in-depth approach needed”);
+aR(“Technology”,“Absence of CPOE/BCMA/eMAR systems. Technology investment recommended”);
+aR(“Policy”,“CBAHI “+t.c+” exists but implementation gap identified. No audit program”);
+
+aT(“FORMAL RECOMMENDATIONS”);
+doc.autoTable({startY:y,margin:{left:M,right:M},
+head:[[”#”,“Category”,“Recommendation”,“Timeline”]],
+body:[
+[“1”,“Education”,“Mandatory CME on “+t.l+” prevention. CBAHI “+t.c+” standards. Competency verification required.”,“14 days”],
+[“2”,“Process”,“Redesign “+stage.toLowerCase()+” workflow with verification checkpoints. Evaluate CPOE/BCMA deployment.”,“30 days”],
+[“3”,“Governance”,“Monthly medication safety dashboard reported to PT&C. KPIs for “+t.l+” rate and compliance.”,“30 days”],
+[“4”,“Culture”,“Non-punitive reporting campaign. Monthly safety huddles in “+ward+”.”,“60 days”]
+],
+styles:{fontSize:6.5,cellPadding:2,font:“helvetica”,overflow:“linebreak”},
+headStyles:{fillColor:dk,textColor:255,fontStyle:“bold”},
+columnStyles:{0:{cellWidth:7,halign:“center”},1:{cellWidth:15,fontStyle:“bold”},3:{cellWidth:15,halign:“center”}},
+theme:“grid”
+});
+y=doc.lastAutoTable.finalY+3;
+
+aT(“ROOT CAUSE AND ACTION PLAN”);
+doc.autoTable({startY:y,margin:{left:M,right:M},
+head:[[“Root Cause”,“Risk Reduction Strategy”,“Responsible”,“Target Date”]],
+body:[
+[{content:t.r,rowSpan:3},“1. Mandatory education with competency verification within 14 days.”,{content:resp,rowSpan:3},{content:fD(V(“dC”)),rowSpan:3}],
+[“2. Workflow redesign with verification checkpoints within 30 days.”],
+[“3. Monthly compliance audit program. First audit at 60 days.”]
+],
+styles:{fontSize:6.5,cellPadding:2,font:“helvetica”,overflow:“linebreak”},
+headStyles:{fillColor:dk,textColor:255,fontStyle:“bold”},
+columnStyles:{0:{cellWidth:40},2:{cellWidth:20,halign:“center”},3:{cellWidth:20,halign:“center”}},
+theme:“grid”
+});
+y=doc.lastAutoTable.finalY+3;
+
+if(acts.length>0){
+aT(“SPSC ACTION TAKEN”);
+var ab=[];
+for(var ai=0;ai<acts.length;ai++){ab.push([(ai+1)+””,acts[ai]])}
+doc.autoTable({startY:y,margin:{left:M,right:M},
+head:[[”#”,“Action Taken (per SPSC)”]],body:ab,
+styles:{fontSize:7,cellPadding:2,font:“helvetica”},
+headStyles:{fillColor:dk,textColor:255,fontStyle:“bold”},
+columnStyles:{0:{cellWidth:8,halign:“center”}},
+theme:“grid”
+});
+y=doc.lastAutoTable.finalY+3;
+}
+
+aT(“NCC MERP SEVERITY CLASSIFICATION”);
+if(y>260){doc.addPage();y=M}
+doc.setFillColor(224,240,232);doc.roundedRect(M,y,CW,8,1.5,1.5,“F”);
+doc.setFontSize(9);doc.setTextColor(gr[0],gr[1],gr[2]);doc.setFont(“helvetica”,“bold”);
+doc.text(sv.l+” - “+sv.d,M+4,y+5.5);
+y=y+11;
+doc.setFontSize(7);doc.setTextColor(40);doc.setFont(“helvetica”,“normal”);
+var jl=doc.splitTextToSize(“Justification: “+sv.j,CW);
+doc.text(jl,M,y);y=y+jl.length*3+5;
+
+aT(“CORRECTIVE ACTION PLAN”);
+var ap=“Immediate (72 hours): Distribute formal memorandum to “+resp+” and all “+ward+” staff. Complete SPSC portal reporting. Short-term (14 days): Mandatory CME with documented competency verification. Medium-term (30 days): Implement redesigned workflow with verification checkpoints. Sustained: Monthly compliance audits, quarterly PT&C reporting, annual policy review.”;
+doc.setFontSize(7);doc.setTextColor(40);doc.setFont(“helvetica”,“normal”);
+var al=doc.splitTextToSize(ap,CW);
+if(y+al.length*3>270){doc.addPage();y=M}
+doc.text(al,M,y);y=y+al.length*3+5;
+
+if(y>190){doc.addPage();y=M}
+aT(“ISHIKAWA FISHBONE DIAGRAM”);
+var cy=y+30,cx=W/2,sp=65;
+doc.setDrawColor(bl[0],bl[1],bl[2]);doc.setLineWidth(0.8);
+doc.line(cx-sp,cy,cx+sp,cy);
+doc.setFillColor(bl[0],bl[1],bl[2]);
+doc.triangle(cx+sp,cy,cx+sp-3,cy-2,cx+sp-3,cy+2,“F”);
+doc.setFillColor(176,48,48);
+doc.roundedRect(cx+sp+2,cy-5,38,10,1.5,1.5,“F”);
+doc.setFontSize(5.5);doc.setTextColor(255);doc.setFont(“helvetica”,“bold”);
+doc.text(“MEDICATION”,cx+sp+21,cy-0.5,{align:“center”});
+doc.text(“ERROR”,cx+sp+21,cy+3,{align:“center”});
+
+var fb=[
+{n:“MANPOWER”,it:t.fh,bx:cx-sp/2,tp:true},
+{n:“METHOD”,it:t.fm,bx:cx+sp/4,tp:true},
+{n:“MATERIAL”,it:t.ft,bx:cx-sp/2,tp:false},
+{n:“ENVIRONMENT”,it:t.fe,bx:cx+sp/4,tp:false}
+];
+for(var fi=0;fi<fb.length;fi++){
+var fc=fb[fi];
+var ty=fc.tp?cy-22:cy+22;
+doc.setDrawColor(bl[0],bl[1],bl[2]);doc.setLineWidth(0.5);
+doc.line(fc.bx,cy,fc.bx,ty);
+var ly=fc.tp?ty-5:ty+1;
+doc.setFillColor(bl[0],bl[1],bl[2]);
+doc.roundedRect(fc.bx-17,ly,34,4.5,0.8,0.8,“F”);
+doc.setFontSize(5.5);doc.setTextColor(255);doc.setFont(“helvetica”,“bold”);
+doc.text(fc.n,fc.bx,ly+3.2,{align:“center”});
+doc.setTextColor(50);doc.setFont(“helvetica”,“normal”);doc.setFontSize(5);
+for(var fj=0;fj<fc.it.length;fj++){
+var iy=fc.tp?ty-(fj*3.5+7):ty+(fj*3.5+6.5);
+doc.setDrawColor(160);doc.setLineWidth(0.2);
+doc.line(fc.bx,fc.tp?ty-(fj*3.5+4.5):ty+(fj*3.5+4),fc.bx+3,iy-0.5);
+doc.text(”- “+fc.it[fj],fc.bx+4,iy);
+}
+}
+doc.setTextColor(0);y=cy+40;
+
+if(y>230){doc.addPage();y=M}
+aT(“AUTHORIZATION AND SIGNATURES”);
+doc.autoTable({startY:y,margin:{left:M,right:M},
+body:[
+[{content:“Prepared by:\n”+V(“s1”)+”\n”+V(“s1r”),styles:{fontStyle:“bold”}},
+{content:“Reviewed by:\n”+V(“s2”)+”\nPharmacy Manager”,styles:{fontStyle:“bold”}}],
+[V(“s3”)+”\nQuality Coordinator”,V(“s4”)+”\nDirector, Quality Management”],
+[{content:V(“s5”)+”\nMedical Director and Chairman PT&C”,colSpan:2,styles:{halign:“center”,fontStyle:“bold”}}]
+],
+styles:{fontSize:7.5,cellPadding:3.5,font:“helvetica”},
+theme:“grid”
+});
+y=doc.lastAutoTable.finalY+5;
+
+doc.setFontSize(7);doc.setTextColor(120);
+doc.text((hosp||“Aseer Health Cluster”)+” | Medication Safety Program | Confidential”,W/2,y,{align:“center”});
+
+return doc;
+}
+</script>
+
+<script>
+var now=new Date();var iso=now.toISOString().split("T")[0];
+document.getElementById("dI").value=iso;
+document.getElementById("iD").value=iso;
+var c2=new Date(now);c2.setDate(c2.getDate()+4);
+document.getElementById("dC").value=c2.toISOString().split("T")[0];
+document.getElementById("hosp").onchange=function(){document.getElementById("hospOR").style.display=this.value==="other"?"block":"none"};
+window.onerror=function(m,s,l){alert("JS Error line "+l+": "+m)};
+</script>
+
 </body></html>
